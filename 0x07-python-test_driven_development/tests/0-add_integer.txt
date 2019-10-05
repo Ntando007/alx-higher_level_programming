@@ -33,9 +33,6 @@ Correct Usage:
     >>> print(add_integer(8**0.3, -2))
     -1
 
-    >>> add_integer(-98)
-    0
-
 
 On Errors:
     >>> print(add_integer(4, "School"))
