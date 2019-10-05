@@ -61,7 +61,7 @@ On Errors:
 
     >>> print(add_integer())
     Traceback (most recent call last):
-    TypeError: a must be an integer
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
     >>> add_integer(float('inf'), 2)
     Traceback (most recent call last):
