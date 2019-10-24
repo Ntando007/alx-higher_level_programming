@@ -42,13 +42,13 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    "height gettert"
     def height(self):
+       """height gettert"""
         return self.__height
 
     @height.setter
-    """height setter"""
     def height(self, value):
+    """height setter"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -61,8 +61,8 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    """x setter"""
     def x(self, value):
+        """x setter"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
