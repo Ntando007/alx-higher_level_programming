@@ -6,10 +6,19 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle class based on base"""
+    """Rectangle class based on base
+    Private instance attributes,
+    each with its own public getter and setter:
+    __width -> width
+    __height -> height
+    __x -> x
+    __y -> y
+    """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize"""
+        """Initialization of arguments
+        with super class id of the base
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -18,11 +27,14 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """getter"""
+        """width getter"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """width setter that
+        raise type and value errors
+        """
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -30,10 +42,12 @@ class Rectangle(Base):
         self.__width = value
 
     @property
+    "height gettert"
     def height(self):
         return self.__height
 
     @height.setter
+    """height setter"""
     def height(self, value):
         if type(value) is not int:
             raise TypeError("height must be an integer")
@@ -43,9 +57,11 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @x.setter
+    """x setter"""
     def x(self, value):
         if type(value) is not int:
             raise TypeError("x must be an integer")
@@ -55,10 +71,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """y setter"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -66,9 +84,15 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """public method that returns
+        the area value of the Rectangle instance
+        """
         return self.width * self.height
 
     def display(self):
+        """method that prints in stdout
+        the Rectangle instance with the character #
+        """
         for y in range(self.y):
             print()
         for i in range(self.height):
@@ -79,10 +103,14 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """method that return a special string
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
+        """method that assigns an argument
+        to each attribute"""
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
@@ -111,6 +139,9 @@ class Rectangle(Base):
                         self.y = kwargs['y']
 
     def to_dictionary(self):
+        """returns the dictionary
+        representation of a Rectangle
+        """
         dictionary = {}
         dictionary['id'] = self.id
         dictionary['width'] = self.width

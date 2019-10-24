@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Documentation for Square class"""
+"""Documentation for Square class
+Based on class Rectangle"""
 
 
 from models.rectangle import Rectangle
@@ -8,23 +9,31 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """Square class based on Rectangle class"""
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize"""
+        """Initialize instances"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """special string with
+        square attributes"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x,
                                                  self.y, self.width)
 
     @property
     def size(self):
+        """size getter"""
         return self.width
 
     @size.setter
+    """size setter"""
     def size(self, value):
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
+        """method that assigns attributes
+        args is the list of arguments
+        kwargs is the attribute dictionary
+        """
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
@@ -51,6 +60,9 @@ class Square(Rectangle):
                         self.y = kwargs['y']
 
     def to_dictionary(self):
+        """  returns the dictionary
+        representation of a Square
+        """
         dictionary = {}
         dictionary['id'] = self.id
         dictionary['size'] = self.width
