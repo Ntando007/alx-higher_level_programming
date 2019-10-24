@@ -141,6 +141,12 @@ class Rectangle(Base):
     def to_dictionary(self):
         """returns the dictionary
         representation of a Rectangle
+        This dictionary must contain:
+        id
+        width
+        height
+        x
+        y
         """
         dictionary = {}
         dictionary['id'] = self.id
