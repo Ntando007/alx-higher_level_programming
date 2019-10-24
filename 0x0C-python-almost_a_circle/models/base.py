@@ -76,31 +76,13 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """returns a list of instances"""
-        filename = "{}.csv".format(cls.__name__)
-
-        if os.path.exists(filename) is False:
-            return []
-
-        with open(filename, 'r') as readFile:
-            reader = csv.reader(readFile)
-            csv_list = list(reader)
-
-        if cls.__name__ == "Rectangle":
-            list_keys = ['id', 'width', 'height', 'x', 'y']
+        instance_list = []
+        filename = "{}.json".format(cls.__name__)
+        if os.path.isfile(filename):
+            with open(filename) as f:
+                instance_object = cls.from_json_string(f.read())
+                for instance_dict in instance_object:
+                    instance_list.append(cls.create(**instance_dict))
+                return instance_list
         else:
-            list_keys = ['id', 'size', 'x', 'y']
-
-        matrix = []
-
-        for csv_elem in csv_list:
-            dict_csv = {}
-            for kv in enumerate(csv_elem):
-                dict_csv[list_keys[kv[0]]] = int(kv[1])
-            matrix.append(dict_csv)
-
-        list_ins = []
-
-        for index in range(len(matrix)):
-            list_ins.append(cls.create(**matrix[index]))
-
-        return list_ins
+            return []
