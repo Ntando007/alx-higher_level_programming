@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Documentation for base class"""
-
+import json
+import csv
+import os.path
 
 class Base:
 
@@ -23,7 +25,7 @@ class Base:
         representation of list_dictionaries
         """
 
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        if list_dictionaries is None or list_dictionaries == "[]":
             return "[]"
 
         return json.dumps(list_dictionaries)
