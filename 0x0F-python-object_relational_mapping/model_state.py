@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 """
 Write a python file that contains the class definition of a State
 and an instance Base = declarative_base():
