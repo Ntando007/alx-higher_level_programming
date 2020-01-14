@@ -3,9 +3,9 @@
 Python script that takes GitHub credentials
 and uses the GitHub API to display the user id
 """
-from requests import get, auth
-import sys
 
+import requests
+import sys
 
 if __name__ == "__main__":
     # Get the info requesting the api
