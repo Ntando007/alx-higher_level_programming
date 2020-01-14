@@ -8,8 +8,5 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    my_url = sys.argv[1]
-    my_mail = sys.argv[2]
-    request = requests.get(my_url, data={'email': my_mail})
-    posted = request.text
-    print(posted)
+    r = requests.post(sys.argv[1], data={'email': sys.argv[2]})
+    print(r.text)
