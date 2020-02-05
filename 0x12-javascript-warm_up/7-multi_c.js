@@ -6,5 +6,5 @@ if (Number.isNaN(i)) {
   while (i > 0) {
     console.log('C is fun');
     i--;
-    }
+  }
 }
