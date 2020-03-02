@@ -1,4 +1,5 @@
 #!/usr/bin/node
+
 const request = require('request');
 function helpRequest (arr, i) {
   if (i === arr.length) {
