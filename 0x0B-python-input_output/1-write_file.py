@@ -1,12 +1,22 @@
 #!/usr/bin/python3
-"""Documentation for number_of_lines function"""
 
 
-def number_of_lines(filename=""):
-    """function that returns the number of lines of a text file
+def write_file(filename="", text=""):
+    """Write string to file
+    Args:
+        filename (str): string of path to file
+        text (str): string to write to file
+    Returns:
+        number of characters written
     """
-    with open(filename, encoding='utf-8') as x:
-        line_num = 0
-        for i in x:
-            line_num += 1
-        return line_num
+    chars_written = 0
+    with open(filename, 'w', encoding='utf-8') as f:
+        chars_written += f.write(text)
+    return chars_written
+
+
+if __name__ == '__main__':
+    nb_characters = write_file(
+        "my_first_file.txt", "Holberton School is so cool!\n")
+    print(nb_characters)
+
